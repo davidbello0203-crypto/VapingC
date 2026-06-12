@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+/* === PRIMITIVE TOKENS (valores crudos) ==================== */
+:root {
+  --primitive-black-900: #070707;
+  --primitive-black-800: #0d0c0a;
+  --primitive-black-700: #14120d;
+  --primitive-gold-400: #f3d27a;
+  --primitive-gold-500: #d4a437;
+  --primitive-gold-700: #8a6a23;
+  --primitive-ivory-100: #f5f2ea;
+  --primitive-ivory-400: #a59d8c;
+  --primitive-ivory-600: #6a6356;
+  --primitive-green-400: #4ade80;
+}
+
+/* === SEMANTIC TOKENS (propósito) ========================== */
+:root {
+  --bg: var(--primitive-black-900);
+  --surface: var(--primitive-black-800);
+  --elevated: var(--primitive-black-700);
+  --ink: var(--primitive-ivory-100);
+  --ink-muted: var(--primitive-ivory-400);
+  --ink-faint: var(--primitive-ivory-600);
+  --gold: var(--primitive-gold-500);
+  --gold-bright: var(--primitive-gold-400);
+  --gold-deep: var(--primitive-gold-700);
+  --status: var(--primitive-green-400);
+  --hairline: rgba(212, 164, 55, 0.25);
+  --hairline-faint: rgba(212, 164, 55, 0.13);
+}
+
+/* === COMPONENT TOKENS ===================================== */
+:root {
+  --button-radius: 16px;
+  --sheet-radius: 28px;
+}
+
+/* Map tokens to Tailwind v4 utilities (bg-bg, text-gold, border-hairline…) */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-deep: var(--gold-deep);
+  --color-status: var(--status);
+  --color-hairline: var(--hairline);
+  --color-hairline-faint: var(--hairline-faint);
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-inter);
+  --radius-button: var(--button-radius);
+  --radius-sheet: var(--sheet-radius);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* Aura: un solo resplandor radial suave, contenido */
+.bg-aura {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 420px at 50% -80px, rgba(212, 164, 55, 0.13), transparent 70%),
+    radial-gradient(circle 380px at 110% 110%, rgba(243, 210, 122, 0.05), transparent 70%);
+}
+
+/* Grano de película para textura premium */
+.bg-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+/* Texto con destello plateado / dorado */
+.text-silver-sheen {
+  background: linear-gradient(180deg, #ffffff 20%, #b9b9b9 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gold-sheen {
+  background: linear-gradient(180deg, var(--gold-bright) 15%, var(--gold) 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Línea dorada finísima que se desvanece en los extremos */
+.hairline-h {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline), transparent);
+}
+
+/* Ocultar scrollbar en la tira de pestañas */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Anillo de enfoque visible (accesibilidad por teclado) */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
