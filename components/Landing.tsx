@@ -189,7 +189,7 @@ export default function Landing() {
             <ActionRow
               variant="ghost"
               title="Guardar contacto"
-              subtitle="Agéndanos directo en tu cel"
+              subtitle="Toca y agréganos directo a tus contactos"
               icon={<ContactIcon className="h-5 w-5" />}
             />
           </motion.a>

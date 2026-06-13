@@ -1,8 +1,10 @@
 BEGIN:VCARD
 VERSION:3.0
-N:;Vaping Chilpo 💨;;;
-FN:Vaping Chilpo 💨
+FN:Vaping Chilpo
+N:Chilpo;Vaping;;;
 ORG:Vaping Chilpo
-TEL;TYPE=CELL:+527471000043
-NOTE:Tu punto de confianza en vapes 👑 Pedidos y entregas por WhatsApp
+TEL;TYPE=CELL,PREF:+527471000043
+X-WA-BIZ-NAME:Vaping Chilpo
+URL;TYPE=HOME:https://vapingc.vercel.app
+NOTE:Tu punto de confianza en vapes. Pedidos y entregas por WhatsApp.
 END:VCARD
